@@ -1,0 +1,17 @@
+# Security
+*.key
+*.pem
+*.priv
+*id_rsa*
+*id_ed25519*
+*id_ecdsa*
+.env
+credentials.*
+
+# System
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+.vscode/
