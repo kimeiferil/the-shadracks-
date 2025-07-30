@@ -32,8 +32,11 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/gallery', require('./routes/galleryRoutes'));
+const authRoutes = require('./routes/authRoutes');
+const galleryRoutes = require('./routes/galleryRoutes');
+
+app.use('/api/auth', authRoutes);
+app.use('/api/gallery', galleryRoutes);
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
