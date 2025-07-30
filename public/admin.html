@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | SHADRACK'S Family</title>
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Admin sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <h1>SHADRACK'S Admin</h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="#dashboard" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                    <li><a href="#events"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="#family-tree"><i class="fas fa-tree"></i> Family Tree</a></li>
+                    <li><a href="#messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="sidebar-toggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 id="admin-page-title">Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <div class="admin-user">
+                        <span>Welcome, Admin</span>
+                        <div class="user-avatar">
+                            <img src="/assets/images/admin-avatar.jpg" alt="Admin">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-content" id="admin-content">
+                <!-- Gallery Management Section -->
+                <section id="gallery-management" class="admin-section">
+                    <div class="section-header">
+                        <h3>Photo Gallery Management</h3>
+                        <button id="add-photos-btn" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Photos
+                        </button>
+                    </div>
+
+                    <!-- Photo Upload Modal -->
+                    <div id="upload-modal" class="modal hidden">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>Upload Photos</h4>
+                                <button class="modal-close">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="photo-upload-form">
+                                    <div class="upload-area" id="drop-zone">
+                                        <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                                        <div class="upload-icon">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                        </div>
+                                        <p>Drag & drop photos here or click to browse</p>
+                                        <p class="upload-hint">Supports JPG, PNG, WEBP (Max 10MB each)</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="album-select">Select Album:</label>
+                                        <select id="album-select" class="form-control">
+                                            <option value="">-- Select Album --</option>
+                                            <!-- Albums will be populated via JS -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="photo-caption">Caption (for all photos):</label>
+                                        <input type="text" id="photo-caption" class="form-control" placeholder="Optional caption">
+                                    </div>
+                                    <div class="upload-progress hidden">
+                                        <div class="progress-bar">
+                                            <div class="progress" id="upload-progress"></div>
+                                        </div>
+                                        <span class="progress-text" id="progress-text">0%</span>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="button" class="btn-secondary modal-close-btn">Cancel</button>
+                                        <button type="submit" class="btn-primary" id="upload-btn" disabled>
+                                            <i class="fas fa-upload"></i> Upload Photos
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Filters -->
+                    <div class="gallery-filters">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="photo-search" placeholder="Search photos...">
+                        </div>
+                        <select id="album-filter" class="form-control">
+                            <option value="">All Albums</option>
+                            <!-- Album options will be populated via JS -->
+                        </select>
+                        <button id="bulk-actions-btn" class="btn-secondary" disabled>
+                            <i class="fas fa-tasks"></i> Bulk Actions
+                        </button>
+                    </div>
+
+                    <!-- Photo Gallery Grid -->
+                    <div class="photo-grid" id="photo-grid">
+                        <!-- Photos will be loaded here via JS -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be generated via JS -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="/assets/js/admin.js" type="module"></script>
+</body>
+</html>
