@@ -1,0 +1,227 @@
+/* Base Styles & Variables */
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary: #ffffff;
+  --secondary-hover: #f1f5f9;
+  --text-dark: #1e293b;
+  --text-light: #64748b;
+  --bg-light: #f8fafc;
+  --transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fade-in 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+/* Navigation */
+.nav-link {
+  @apply hover:text-indigo-200 transition-colors px-3 py-2 rounded-md;
+}
+
+.nav-link.active {
+  @apply bg-indigo-900 text-white;
+}
+
+.mobile-nav-link {
+  @apply block px-3 py-2 rounded-md hover:bg-indigo-700 transition-colors;
+}
+
+.mobile-nav-link.active {
+  @apply bg-indigo-900 text-white;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply bg-white text-indigo-600 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold transition-colors shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-indigo-600 px-6 py-3 rounded-full font-semibold transition-colors;
+}
+
+/* Sections */
+.section-title {
+  @apply text-3xl font-bold text-center mb-12 relative;
+}
+
+.section-title::after {
+  content: '';
+  @apply block w-20 h-1 bg-indigo-500 mx-auto mt-4;
+}
+
+/* Forms */
+.form-group {
+  @apply mb-6;
+}
+
+.form-group label {
+  @apply block text-gray-700 font-medium mb-2;
+}
+
+.form-group input,
+.form-group textarea {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors;
+}
+
+.form-group textarea {
+  @apply resize-none;
+}
+
+/* Gallery */
+.gallery-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+}
+
+.gallery-item {
+  @apply bg-white rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105;
+}
+
+.gallery-item img {
+  @apply w-full h-48 object-cover transition-opacity duration-300;
+}
+
+/* Events */
+.events-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.event-card {
+  @apply bg-white rounded-xl overflow-hidden shadow-md transition-all hover:-translate-y-1 hover:shadow-lg;
+}
+
+.event-card-header {
+  @apply bg-indigo-600 text-white p-4;
+}
+
+/* Family Tree */
+.family-tree {
+  @apply flex justify-center flex-wrap;
+}
+
+.tree-level {
+  @apply flex justify-center w-full mb-8;
+}
+
+.tree-node {
+  @apply bg-white rounded-lg p-4 mx-4 shadow-md text-center relative;
+  min-width: 120px;
+}
+
+.tree-node img {
+  @apply w-20 h-20 rounded-full object-cover mx-auto mb-2 border-4 border-white shadow-md;
+}
+
+/* Admin Panel */
+.admin-panel {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden;
+}
+
+.admin-container {
+  @apply bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-screen overflow-y-auto;
+}
+
+.admin-header {
+  @apply flex justify-between items-center border-b p-4;
+}
+
+.admin-content {
+  @apply p-6;
+}
+
+/* Footer */
+.footer-grid {
+  @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+}
+
+.footer-brand h3 {
+  @apply text-xl font-bold mb-2;
+}
+
+.footer-brand p {
+  @apply text-gray-400;
+}
+
+.footer-links h4,
+.footer-social h4,
+.footer-newsletter h4 {
+  @apply font-semibold mb-4 text-lg;
+}
+
+.footer-links ul {
+  @apply space-y-2;
+}
+
+.footer-links a {
+  @apply text-gray-400 hover:text-white transition-colors;
+}
+
+.social-icons {
+  @apply flex space-x-4;
+}
+
+.social-icons a {
+  @apply text-gray-400 hover:text-white text-xl transition-colors;
+}
+
+.newsletter-form {
+  @apply flex;
+}
+
+.newsletter-form input {
+  @apply px-4 py-2 rounded-l-lg focus:outline-none text-gray-900 flex-grow;
+}
+
+.newsletter-form button {
+  @apply bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-lg text-white;
+}
+
+.footer-copyright {
+  @apply border-t border-gray-800 mt-8 pt-8 text-center text-gray-400;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .tree-level {
+    @apply flex-col items-center;
+  }
+  
+  .tree-node {
+    @apply mb-8;
+  }
+  
+  .family-tree {
+    @apply block;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .admin-panel,
+  .mobile-menu-button,
+  .btn-primary,
+  .btn-secondary {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
