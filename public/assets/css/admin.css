@@ -1,0 +1,189 @@
+/* Admin Styles */
+.admin-body {
+    @apply bg-gray-100 text-gray-800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-container {
+    @apply flex min-h-screen;
+}
+
+.admin-sidebar {
+    @apply w-64 bg-indigo-800 text-white fixed h-full;
+    transition: all 0.3s ease;
+}
+
+.admin-brand {
+    @apply p-4 border-b border-indigo-700;
+}
+
+.admin-brand h1 {
+    @apply text-xl font-bold;
+}
+
+.admin-nav ul {
+    @apply py-2;
+}
+
+.admin-nav li a {
+    @apply block px-4 py-3 hover:bg-indigo-700 transition-colors flex items-center;
+}
+
+.admin-nav li a.active {
+    @apply bg-indigo-900;
+}
+
+.admin-nav li a i {
+    @apply mr-3 w-5 text-center;
+}
+
+.admin-main {
+    @apply flex-1 ml-64;
+    transition: all 0.3s ease;
+}
+
+.admin-header {
+    @apply bg-white shadow-sm p-4 flex justify-between items-center;
+}
+
+.admin-content {
+    @apply p-6;
+}
+
+.admin-section {
+    @apply bg-white rounded-lg shadow-sm p-6 mb-6;
+}
+
+.section-header {
+    @apply flex justify-between items-center mb-6;
+}
+
+/* Modal Styles */
+.modal {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+}
+
+.modal-content {
+    @apply bg-white rounded-lg w-full max-w-2xl;
+}
+
+.modal-header {
+    @apply flex justify-between items-center p-4 border-b;
+}
+
+.modal-body {
+    @apply p-4;
+}
+
+/* Upload Area */
+.upload-area {
+    @apply border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition-colors hover:border-indigo-500;
+}
+
+.upload-icon {
+    @apply text-4xl text-indigo-500 mb-2;
+}
+
+.upload-hint {
+    @apply text-sm text-gray-500 mt-1;
+}
+
+.drag-over {
+    @apply border-indigo-500 bg-indigo-50;
+}
+
+/* Progress Bar */
+.progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2 mt-2;
+}
+
+.progress {
+    @apply bg-indigo-600 h-2 rounded-full;
+    transition: width 0.3s ease;
+}
+
+/* Photo Grid */
+.photo-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4;
+}
+
+.photo-card {
+    @apply bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow;
+}
+
+.photo-thumbnail {
+    @apply relative aspect-square overflow-hidden;
+}
+
+.photo-thumbnail img {
+    @apply w-full h-full object-cover;
+}
+
+.photo-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center space-x-2 opacity-0 hover:opacity-100 hover:bg-opacity-30 transition-all;
+}
+
+.photo-info {
+    @apply p-3;
+}
+
+.photo-caption {
+    @apply text-sm font-medium truncate;
+}
+
+.photo-meta {
+    @apply text-xs text-gray-500 flex justify-between mt-1;
+}
+
+/* Form Elements */
+.form-group {
+    @apply mb-4;
+}
+
+.form-control {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500;
+}
+
+/* Buttons */
+.btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors;
+}
+
+.btn-primary {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+.btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+.btn-icon {
+    @apply w-8 h-8 rounded-full bg-white bg-opacity-80 flex items-center justify-center text-gray-700 hover:text-indigo-600 transition-colors;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        @apply -ml-64;
+    }
+    
+    .admin-main {
+        @apply ml-0;
+    }
+    
+    .sidebar-open .admin-sidebar {
+        @apply ml-0;
+    }
+    
+    .sidebar-open .admin-main {
+        @apply ml-64;
+    }
+    
+    .photo-grid {
+        @apply grid-cols-2;
+    }
+}
